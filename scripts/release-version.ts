@@ -1,4 +1,4 @@
-import { releaseVersion } from '@nx/js';
+import { releaseVersion } from 'nx/release';
 
 await releaseVersion({
   dryRun: true,
