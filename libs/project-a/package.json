@@ -6,6 +6,6 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   }, 
   "nx": {
-    "name": "project-a",
+    "name": "project-a"
   }
 }
