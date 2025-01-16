@@ -5,18 +5,35 @@
     "production": ["default"],
     "sharedGlobals": []
   },
-  "plugins": [
-    {
-      "plugin": "@nx/js/typescript",
-      "options": {
-        "typecheck": {
-          "targetName": "typecheck"
-        },
-        "build": {
-          "targetName": "build",
-          "configName": "tsconfig.lib.json"
+  "release": {
+    "projects": [
+      "libs/**/*"
+    ],
+    "changelog": {
+      "automaticFromRef": true,
+      "git": {
+        "commitMessage": "chore(release): release packages [skip ci]"
+      },
+      "projectChangelogs": {
+        "createRelease": false,
+        "file": "{projectRoot}/CHANGELOG.md",
+        "renderOptions": {
+          "authors": false,
+          "commitReferences": true,
+          "versionTitleDate": true
         }
       }
+    },
+    "projectsRelationship": "independent",
+    "releaseTagPattern": "release/{projectName}/{version}",
+    "version": {
+      "generatorOptions": {
+        "specifierSource": "conventional-commits",
+        "currentVersionResolver": "git-tag",
+        "skipLockFileUpdate": true,
+        "fallbackCurrentVersionResolver": "disk",
+        "preserveLocalDependencyProtocols": true
+      }
     }
-  ]
+  }
 }
